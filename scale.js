@@ -33,15 +33,21 @@ function calculate4Points (
 	];
 }
 
-function drawQuarterCircle(
+function drawCircle(
 	numberOfPoints,
 	width,
-	margin
+	outerMargin,
+	innerMargin
 ) {
 	for(var i=0; i<numberOfPoints; i++) { 
-		var points = calculate4Points(numberOfPoints, width, margin, i);
+		var outerPoints = calculate4Points(numberOfPoints, width, outerMargin, i);
+		var innerPoints = calculate4Points(numberOfPoints, width, innerMargin, i);
 		for(var j=0; j<4; j++) {
-			ctx.fillRect(points[j].x-1, points[j].y-1, 3, 3);
+
+			ctx.moveTo(innerPoints[j].x, innerPoints[j].y);
+			ctx.lineTo(outerPoints[j].x, outerPoints[j].y);
+			ctx.stroke();
+
 		}
 	}
 }
@@ -53,4 +59,6 @@ ctx.fillStyle = "orange";
 ctx.fillRect(10,10,480,480);
 
 ctx.fillStyle = "black";
-drawQuarterCircle(100, 500, 10);
+drawCircle(5, 500, 5, 20);
+drawCircle(15, 500, 10, 20);
+drawCircle(30, 500, 15, 20);

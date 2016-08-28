@@ -47,7 +47,6 @@ function drawCircle(
 			ctx.moveTo(innerPoints[j].x, innerPoints[j].y);
 			ctx.lineTo(outerPoints[j].x, outerPoints[j].y);
 			ctx.stroke();
-
 		}
 	}
 }
@@ -56,9 +55,9 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 ctx.fillStyle = "orange";
-ctx.fillRect(10,10,480,480);
+ctx.fillRect(5,5,490,490);
 
 ctx.fillStyle = "black";
-drawCircle(5, 500, 5, 20);
-drawCircle(15, 500, 10, 20);
-drawCircle(30, 500, 15, 20);
+//drawCircle(10, 500, 5, 20);
+drawCircle(15, 500, 15, 20);
+drawCircle(3, 500, 5, 20);

@@ -17,13 +17,13 @@ function calculate4Points (
 	var py1 = middle - delta_y;
 	
 	var px2 = middle - delta_x;
-	var py2 = middle - delta_y;
+	var py2 = middle + delta_y;
 	
-	var px3 = middle - delta_x;
-	var py3 = middle + delta_y;
+	var px3 = middle - delta_y;
+	var py3 = middle - delta_x;
 
-	var px4 = middle + delta_x;
-	var py4 = middle + delta_y;
+	var px4 = middle + delta_y;
+	var py4 = middle + delta_x;
 	
 	return [
 		{x: px1, y: py1},
@@ -44,6 +44,8 @@ function drawCircle(
 		var innerPoints = calculate4Points(numberOfPoints, width, innerMargin, i);
 		for(var j=0; j<4; j++) {
 
+			console.log('from', innerPoints[j].x, innerPoints[j].y);
+			console.log('to', outerPoints[j].x, outerPoints[j].y);
 			ctx.moveTo(innerPoints[j].x, innerPoints[j].y);
 			ctx.lineTo(outerPoints[j].x, outerPoints[j].y);
 			ctx.stroke();

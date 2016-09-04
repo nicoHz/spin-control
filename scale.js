@@ -5,8 +5,8 @@ function calculate4Points (
 	margin,
 	pointNumber
 ) {
-	var alpha = Math.PI / (2 * numberOfPoints) * pointNumber;
-	var middle = width / 2;
+	var alpha = (Math.PI / (2 * numberOfPoints) * pointNumber);
+	var middle = (width / 2);
 
 	var radius = middle - margin;
 
@@ -37,7 +37,8 @@ function drawCircle(
 	numberOfPoints,
 	width,
 	outerMargin,
-	innerMargin
+	innerMargin,
+	lineWidth
 ) {
 	for(var i=0; i<numberOfPoints; i++) { 
 		var outerPoints = calculate4Points(numberOfPoints, width, outerMargin, i);
@@ -48,18 +49,22 @@ function drawCircle(
 			console.log('to', outerPoints[j].x, outerPoints[j].y);
 			ctx.moveTo(innerPoints[j].x, innerPoints[j].y);
 			ctx.lineTo(outerPoints[j].x, outerPoints[j].y);
+			ctx.lineWidth = lineWidth;
 			ctx.stroke();
 		}
 	}
 }
 
+function drawScale(size) {
+	drawCircle(15, 500 * size, 15 * size, 20 * size, 5/4 * size);
+	drawCircle(3, 500 * size, 5 * size, 25 * size, 20/4 * size);
+}
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-ctx.fillStyle = "orange";
-ctx.fillRect(5,5,490,490);
+//ctx.fillStyle = "orange";
+//ctx.fillRect(5,5,490,490);
 
 ctx.fillStyle = "black";
-//drawCircle(10, 500, 5, 20);
-drawCircle(15, 500, 15, 20);
-drawCircle(3, 500, 5, 20);
+drawScale(1);

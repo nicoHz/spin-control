@@ -63,8 +63,8 @@ function drawScale(size) {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-//ctx.fillStyle = "orange";
-//ctx.fillRect(5,5,490,490);
+ctx.fillStyle = "orange";
+ctx.fillRect(5,5,490,490);
 
 ctx.fillStyle = "black";
 drawScale(1);
